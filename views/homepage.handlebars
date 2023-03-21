@@ -1,0 +1,21 @@
+{{!-- TODO: Test functionality --}}
+<!-- Loop over each object in the projects array -->
+{{#each posts }}
+<div class="row mb-4 project">
+  <div id="card" class="card">
+    <div id="class-header">
+      <h2>
+     <a href="/post/{{post.id}}">{{post.title}}</a>
+      </h2>
+    <p>
+      <!-- Pass needed_funding value to the helper function -->
+      Posted by <span class="post-info">{{post.user.name}} on {{format_date project.date_created}}</span>
+      needed!
+    </p>
+    <p>
+      {{post.description}}
+    </p>
+    </div>
+  </div>
+</div>
+{{/each}}
