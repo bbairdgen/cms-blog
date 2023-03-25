@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Why MVC is so important",
+    "description": "MVC allows developers to maintain a true separation of concerns, devising their code between the Model layer for data, the View layer for design, and the Controller layer for application logic."
+  },
+  {
+    "title": "What are handlebars",
+    "description": "These are files that can have data added. "
+  },
+  {
+    "title": "HTML",
+    "description": "This is coding that is used for front-end web pages."
+  },
+  {
+    "title": "CSS",
+    "description": "This is code that allows for styles to be added to HTML pages. The code can be located on a separate page or inline with the HTML."
+  }  
+]
