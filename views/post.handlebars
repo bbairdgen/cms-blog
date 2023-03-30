@@ -1,14 +1,14 @@
 {{!-- TODO: CHANGE STYLE FOR NEW SITE --}}
 <div class="text-center">
-  <h2>{{name}}</h2>
-  <p>{{{get_emoji}}}</p>
-  <p>{{description}}</p>
+  <h2>{{title}}</h2>
+   <p>{{description}}</p>
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
+    {{#each comments}}
   <p>
     <span for="img" aria-label="money">💲</span>
-    <span class="dollar-amount">{{format_amount needed_funding}}</span>
-    needed
+   {{comment}} on {{format_date date_created}}</span>
   </p>
+{{/each}}
   <p>
     <button class="btn btn-primary">Fund this Project!</button>
   </p>
