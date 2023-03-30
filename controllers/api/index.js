@@ -1,5 +1,3 @@
-// TO DO: Update routes to match new APIs
-
 const router = require('express').Router();
 const userRoutes = require('./userRoutes');
 const postRoutes = require('./postRoutes');
