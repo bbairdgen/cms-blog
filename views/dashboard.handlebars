@@ -5,11 +5,13 @@
   </div>
 </div>
 
-<div class="row mt-4">
-  <div class="col-md-6">
-    <h3>Create a New Post:</h3>
-
-    <form class="form new-post-form">
+<div class="row mt-4" id="edit">
+  <div class="card" id="new-post" style="display: none">
+    <div class="card-header">
+      <h3>Create a New Post:</h3>
+    </div>
+    <div class="display-flex">
+    <form class="form new-post-form pl-1">
       <div class="form-group">
         <label for="project-name">Title:</label>
         <input class="form-input" type="text" id="project-name" name="project-name" />
@@ -19,27 +21,22 @@
         <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" class="btn btn-dark btn-submit">Create</button>
       </div>
     </form>
+    </div>
   </div>
   {{#if posts.length}}
-  <div class="col-md-6 post-list">
-    <h3>Current Projects:</h3>
-
+    <h3>Current Posts:</h3>
     {{#each posts as |post|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/post/{{post.id}}">{{post.title}}</a></h4>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
+    <div class="col-12 post-list display-flex justify-space-between align-center mb-2">
+      <a href="/post-edit/{{post.id}}" class="post-link"><h4 data-id="{{post.id}}">{{post.title}}</h4></a>
+      <div class="pb-2 pt-1">
+        <p>{{format_date post.date_created}}</p>
       </div>
     </div>
     {{/each}}
-
-  </div>
   {{/if}}
-</div>
+  <button class="btn btn-lg" id="btn-new">+ New Post</button>
 
 <script src="./js/dashboard.js"></script>

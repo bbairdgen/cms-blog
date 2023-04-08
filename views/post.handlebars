@@ -1,15 +1,42 @@
-{{!-- TODO: CHANGE STYLE FOR NEW SITE --}}
-<div class="text-center">
-  <h2>{{title}}</h2>
-   <p>{{description}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
+
+<div class="">
+  <div class="card">
+    <div class="card-header display-flex justify-space-between align-center">
+      <h2 class="card-title pl-3">{{title}}</h2>
+      <p class="card-description p-1">Posted by {{user.name}} on {{format_date date_created}}</p>
+    </div>
+    <p class="card-body">{{description}}</p>
+  </div>
+  <div class="comment-list">
     {{#each comments}}
-  <p>
-    <span for="img" aria-label="money">💲</span>
-   {{comment}} on {{format_date date_created}}</span>
-  </p>
-{{/each}}
-  <p>
-    <button class="btn btn-primary">Fund this Project!</button>
-  </p>
+    <div class="card">
+      <div class="card-header"><br></div>
+      <div class="display-flex flex-column">
+        <p class="card-body mt-2">
+          {{comment}}
+        </p>
+        <p class="card-body">
+          {{!-- How to get the name from User model to post here --}}
+          – {{user.name}}, {{format_date date_created}}
+        </p>
+        <div class="display-flex justify-flex-end pr-3 pb-3">
+          <button class="btn btn-sm btn-rght" data-id="{{id}}">DELETE</button>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  <div class="card" type="visible">
+    <div class="card-header"><br></div>
+    <form class="form new-comment-form display-flex flex-column">
+      <input type="hidden" value="{{id}}" id="postId" />
+      <div class="form-group pl-3">
+        <label for="comment">Comment:</label>
+        <textarea class="form-input" id="comment" name="comment"></textarea>
+        <button type="submit" class="btn btn-submit">Submit</button>
+      </div>
+    </form>
+  </div>
 </div>
+
+<script src="../js/posts.js"></script>
