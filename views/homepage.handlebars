@@ -1,21 +1,18 @@
 {{!-- TODO: Test functionality --}}
 <!-- Loop over each object in the projects array -->
-
-
-<h2> TESTING</h2>
 {{#each posts }}
 <div class="row mb-4 project">
   <div id="card" class="card">
-    <div id="class-header">
+    <div class="card-header display-flex justify-space-between align-center">
       <h2>
-     <a href="/post/{{id}}">{{title}}</a>
+     <a class="card-title pl-3" href="/post/{{id}}">{{title}}</a>
       </h2>
-    <p>
-      <!-- Pass needed_funding value to the helper function -->
-      Posted by <span class="post-info">{{user.name}} on {{format_date date_created}}</span>
-      needed!
+    <p class="card-description p-1">
+      Posted by {{user.name}} on {{format_date date_created}}
     </p>
-    <p>
+    </div>
+    <div>
+    <p class="card-body">
       {{description}}
     </p>
     </div>

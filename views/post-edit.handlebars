@@ -1,0 +1,25 @@
+<div class="card">
+    <div class="card-header">
+        <h3>Update your Post</h3>
+    </div>
+    <div class="display-flex">
+        <form class="form new-post-form pl-1">
+            <div class="form-group">
+                <label for="project-name">Title:</label>
+                <input class="form-input" type="text" id="project-name" name="project-name" value={{title}} />
+            </div>
+            <div class="form-group">
+                <label for="project-desc">Content:</label>
+                <textarea class="form-input" id="project-desc" name="project-desc">{{description}}</textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-dark btn-submit" value={{id}}>Update</button>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-dark btn-delete" data-id={{id}}>Delete</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="/js/post-edit.js"></script>

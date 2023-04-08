@@ -1,45 +1,46 @@
+
 const newFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector('#project-name').value.trim();
+  const title = document.querySelector('#project-name').value.trim();
   const description = document.querySelector('#project-desc').value.trim();
-  if (name && description) {
+  if (title && description) {
     const response = await fetch(`/api/posts`, {
       method: 'POST',
-      body: JSON.stringify({ name, description }),
+      body: JSON.stringify({ title, description }),
       headers: {
         'Content-Type': 'application/json',
       },
     });
-    console.log('hello', response) 
+  
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
       alert('Failed to create post');
     }
   }
-};
 
-const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute('data-id')) {
-    const id = event.target.getAttribute('data-id');
-
-    const response = await fetch(`/api/posts/${id}`, {
-      method: 'DELETE',
-    });
-
-    if (response.ok) {
-      document.location.replace('/dashboard');
-    } else {
-      alert('Failed to delete post');
-    }
+  if (scope.style.display === 'block') {
+    scope.style.display = "none";
+  } else {
+    scope.style.display = "block";
   }
 };
+
+var unhide = document.getElementById('btn-new')
+
+
+unhide.onclick = function() {
+  var scope = document.getElementById('new-post')
+
+  if (scope.style.display === 'none') {
+    scope.style.display = "block";
+  } else {
+    scope.style.display = "none";
+  }
+}
+
 
 document
   .querySelector('.new-post-form')
   .addEventListener('submit', newFormHandler);
-
-document
-  .querySelector('.post-list')
-  .addEventListener('click', delButtonHandler);
